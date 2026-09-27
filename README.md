@@ -1,11 +1,5 @@
 # MASS Deployment and Run Guide
 
-> **Note on this release.** 
-> Shapley-masking internals (Sec. 2.3: per-span coalition-utility regression and the closed-form
-> masking-probability update) are withheld pending paper acceptance — see `adaptive_masking.py`.
-> With the shipped default (`enable_adaptive_masking=False`), the code runs the masked-average
-> teacher + anchor teacher + selective weighting (Sec. 2.1-2.2) with plain uniform per-span
-> masking.
 
 ## 1. Environment Setup
 
@@ -213,6 +207,14 @@ NCCL_P2P_DISABLE=1 CUDA_VISIBLE_DEVICES=0,1,2,3 python evaluate_math.py \
 ```
 
 Since adaptive masking is withheld in this release (see the note at the top of this file), expect results closer to the paper's disclosed "Weighting only" ablation numbers (Table 3) rather than the exact "Full MASS" rows in Table 1.
+
+---
+> **Note on this release.** 
+> Shapley-masking internals (Sec. 2.3: per-span coalition-utility regression and the closed-form
+> masking-probability update) are withheld pending paper acceptance — see `adaptive_masking.py`.
+> With the shipped default (`enable_adaptive_masking=False`), the code runs the masked-average
+> teacher + anchor teacher + selective weighting (Sec. 2.1-2.2) with plain uniform per-span
+> masking.
 
 ---
 
